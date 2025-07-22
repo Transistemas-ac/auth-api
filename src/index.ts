@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
+
 import express from "express";
 import cors from "cors";
 import { register, login, logout } from "./controllers/auth";

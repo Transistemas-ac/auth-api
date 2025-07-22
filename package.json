@@ -7,7 +7,7 @@
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
+    "build": "prisma generate && npx tsc",
     "prisma:generate": "prisma generate",
     "prisma:seed": "node prisma/seed.js",
     "prisma:migrate": "prisma migrate dev --name init"
