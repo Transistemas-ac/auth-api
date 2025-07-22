@@ -10,7 +10,8 @@
     "build": "prisma generate && npx tsc",
     "prisma:generate": "prisma generate",
     "prisma:seed": "node prisma/seed.js",
-    "prisma:migrate": "prisma migrate dev --name init"
+    "prisma:migrate": "prisma migrate dev --name init",
+    "postinstall": "prisma generate"
   },
   "repository": {
     "type": "git",
