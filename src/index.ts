@@ -15,10 +15,17 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 
+// Add a health check endpoint for deployment platforms
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
+// ✅ Start server after routes are defined
 connectDB()
   .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log(`💚 app is running on 🔌 port ${process.env.PORT}`);
+    const port = process.env.PORT || 3000;
+    app.listen(Number(process.env.PORT), "0.0.0.0", () => {
+      console.log(`💚 app is running on 🔌 port ${port}`);
     });
   })
   .catch((err: Error) => {
