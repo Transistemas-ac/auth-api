@@ -41,7 +41,3 @@ app.post("/login", (req, res) => {
 app.post("/logout", (req, res) => {
   logout(req, res);
 });
-
-app.listen(process.env.PORT, () => {
-  console.log(`\n💚 app is running on 🔌 port ${process.env.PORT}`);
-});
