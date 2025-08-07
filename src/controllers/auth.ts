@@ -51,6 +51,7 @@ const register = async (req: Request, res: Response) => {
       user: { id: user.id, username: user.username, email: user.email },
     });
   } catch (error) {
+    console.error(error);
     if (error instanceof z.ZodError)
       return res.status(400).json(error.issues.map((e) => e.message));
     return res.status(500).json("An unexpected error occurred 🚫");
