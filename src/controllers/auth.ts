@@ -52,9 +52,9 @@ const register = async (req: Request, res: Response) => {
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      console.error(error.message);
       return res.status(400).json(error.issues.map((e) => e.message));
     }
+    if (error instanceof Error) console.error(error.message);
     return res.status(500).json("An unexpected error occurred 🚫");
   }
 };
